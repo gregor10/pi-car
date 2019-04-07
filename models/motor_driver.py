@@ -1,4 +1,9 @@
-import RPi.GPIO as gpio
+try:
+    import RPi.GPIO as gpio
+except Exception as ex:
+    NO_MODULE = True
+
+
 import time
 
 MOTOR_A_FORWARD_PIN = 17
@@ -17,7 +22,8 @@ class MotorDriver:
         self.motor_speed = speed
         self.max_speed = max_speed
 
-        self.init_pins()
+        if not NO_MODULE:
+            self.init_pins()
 
     def __del__(self):
         gpio.cleanup()

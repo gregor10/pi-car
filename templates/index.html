@@ -17,17 +17,17 @@
     </div>
 
     <div class="controls">
-        <button onclick={{ forward() }}>Forward</button>
-        <button onclick=" {{ backward() }}"">Backward</button>
+        <button onclick="changeDirection('forward')">Forward</button>
+        <button onclick="changeDirection('backward')">Backward</button>
 
-        <button onclick=" {{ stop() }}"">Stop</button>
+        <button onclick="changeDirection('stop')">Stop</button>
 
-        <button onclick="{{ left() }}"">Left</button>
-        <button onclick=" {{ right() }}"">Right</button>
-
+        <button onclick="changeDirection('left')">Left</button>
+        <button onclick="changeDirection('right')">Right</button>
 
     </div>
 
+    <script src="{{ url_for('static', filename='services_caller.js') }}"></script>
 </body>
 
 </html>

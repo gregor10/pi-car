@@ -22,6 +22,8 @@ def change_movement():
     elif direction == "stop":
         motor_driver.stop()
 
+    return jsonify({"success": True})
+
 
 @app.route("/")
 def static_files():

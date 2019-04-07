@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SmartCar remote control</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Motor Driver</h1>
+
+    <div>
+        <p>Here will be camera video...</p>
+    </div>
+
+    <div class="controls">
+        <button onclick={{ forward() }}>Forward</button>
+        <button onclick=" {{ backward() }}"">Backward</button>
+
+        <button onclick=" {{ stop() }}"">Stop</button>
+
+        <button onclick="{{ left() }}"">Left</button>
+        <button onclick=" {{ right() }}"">Right</button>
+
+
+    </div>
+
+</body>
+
+</html>

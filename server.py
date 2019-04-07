@@ -3,7 +3,7 @@ from models.motor_driver import MotorDriver
 
 app = Flask(__name__, template_folder="templates")
 
-motor_driver = MotorDriver(20, 100)
+motor_driver = MotorDriver(50, 100)
 
 
 @app.route("/api/change-movement", methods=["POST"])

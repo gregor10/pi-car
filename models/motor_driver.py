@@ -85,9 +85,9 @@ class MotorDriver:
     
     def go_forward_left(self):
         self.motor_A_forward.start(0)
-        self.motor_A_backward.start(self.motor_speed)
+        self.motor_A_backward.start(0)
 
-        self.motor_B_forward.start(0)
+        self.motor_B_forward.start(self.motor_speed)
         self.motor_B_backward.start(0)
     
     def go_backward_left(self):

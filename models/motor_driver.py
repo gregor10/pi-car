@@ -49,7 +49,11 @@ class MotorDriver:
         self.motor_B_backward.start(0)
 
     def set_speed(self, speed):
+        self.stop()
         self.motor_speed = speed
+    
+    def get_speed(self)
+        return self.motor_speeds
 
     def stop(self):
         self.motor_A_forward.start(0)

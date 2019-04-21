@@ -69,31 +69,31 @@ class MotorDriver:
         self.motor_A_backward.start(0)
 
         self.motor_B_forward.start(0)
-        self.motor_B_backward.start(0)
+        self.motor_B_backward.start(self.motor_speed)
 
     def go_left(self):
         self.motor_A_forward.start(0)
-        self.motor_A_backward.start(0)
+        self.motor_A_backward.start(self.motor_speed)
 
         self.motor_B_forward.start(self.motor_speed)
         self.motor_B_backward.start(0)
 
 
-# print("---Test---")
-# motor_driver = MotorDriver(10, 100)
+print("---Test---")
+motor_driver = MotorDriver(90, 100)
 
-# motor_driver.go_forward()
-# time.sleep(2)
-# motor_driver.stop()
+motor_driver.go_forward()
+time.sleep(6)
+motor_driver.stop()
 
-# motor_driver.go_backward()
-# time.sleep(2)
-# motor_driver.stop()
+motor_driver.go_backward()
+time.sleep(6)
+motor_driver.stop()
 
-# motor_driver.go_left()
-# time.sleep(2)
-# motor_driver.stop()
+motor_driver.go_left()
+time.sleep(6)
+motor_driver.stop()
 
-# motor_driver.go_right()
-# time.sleep(2)
-# motor_driver.stop()
+motor_driver.go_right()
+time.sleep(6)
+motor_driver.stop()

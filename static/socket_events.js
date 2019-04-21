@@ -12,8 +12,13 @@ socket.on('connect', () => {
     window.onload = () => {
         ['forward_dir', 'left_dir', 'stop_dir', 'right_dir', 'backward_dir']
             .forEach((direction) => {
-                document.getElementById(direction).onclick = () => {
+                const element = document.getElementById(direction)
+                element.onmousedown = () => {
                     changeDirectionEmitFunction(direction.replace('_dir', ''))
+                }
+                
+                element.onmouseup = () => {
+                    changeDirectionEmitFunction('stop')
                 }
             })
     }

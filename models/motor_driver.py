@@ -52,8 +52,8 @@ class MotorDriver:
         self.stop()
         self.motor_speed = speed
     
-    def get_speed(self)
-        return self.motor_speeds
+    def get_speed(self):
+        return self.motor_speed
 
     def stop(self):
         self.motor_A_forward.start(0)

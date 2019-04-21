@@ -1,5 +1,26 @@
+body {
+    text-align: center;
+}
+
 h1 {
     color: red;
+}
+
+.controls {
+    width: 390px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.controls td {
+    text-align: center;
+}
+
+.controls button {
+    height: 40px;
+    width: 100px;
+    background: transparent;
+    border: 1px solid #aaa;
 }
 
 button:visited {

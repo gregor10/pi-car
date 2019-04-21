@@ -16,16 +16,35 @@
         <p>Here will be camera video...</p>
     </div>
 
-    <div class="controls">
-        <button onclick="changeDirection('forward')">Forward</button>
-        <button onclick="changeDirection('backward')">Backward</button>
-
-        <button onclick="changeDirection('stop')">Stop</button>
-
-        <button onclick="changeDirection('left')">Left</button>
-        <button onclick="changeDirection('right')">Right</button>
-
-    </div>
+    <table class="controls">
+        <tbody>
+            <tr>
+                <td></td>
+                <td>
+                    <button onclick="changeDirection('forward')">Forward</button>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="changeDirection('left')">Left</button>
+                </td>
+                <td>
+                    <button onclick="changeDirection('stop')">Stop</button>
+                </td>
+                <td>
+                    <button onclick="changeDirection('right')">Right</button>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button onclick="changeDirection('backward')">Backward</button>
+                </td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
 
     <script src="{{ url_for('static', filename='services_caller.js') }}"></script>
 </body>

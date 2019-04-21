@@ -16,37 +16,32 @@ def add_header(response):
 
 motor_driver = MotorDriver(75, 100)
 
+
 @socketio.on("connection_identification_event")
 def handle_connection_identification_event(json):
     print("received json: " + str(json))
 
 
 @socketio.on("change_direction")
-def change_direction(json):
+def handle_change_direction_event(json):
     print("Change direction:", json)
 
     if "direction" in json:
         if json["direction"] == "forward":
             motor_driver.go_forward()
+        elif json["direction"] == "backward":
+            motor_driver.go_backward()
+        elif json["direction"] == "left":
+            motor_driver.go_left()
+        elif json["direction"] == "right":
+            motor_driver.go_right()
+        elif json["direction"] == "stop":
+            motor_driver.stop()
 
 
-# @app.route("/api/change-movement", methods=["POST"])
-# def change_movement():
-#     direction = request.args.get("direction")
-#     print("Change dir to", direction)
-
-#     if direction == "forward":
-#         motor_driver.go_forward()
-#     elif direction == "backward":
-#         motor_driver.go_backward()
-#     elif direction == "left":
-#         motor_driver.go_left()
-#     elif direction == "right":
-#         motor_driver.go_right()
-#     elif direction == "stop":
-#         motor_driver.stop()
-
-#     return jsonify({"success": True})
+@socketio.on('disconnect')
+def handle_disconnect_event():
+    print('Client disconnected')
 
 
 @app.route("/")

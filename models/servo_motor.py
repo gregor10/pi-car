@@ -10,10 +10,11 @@ SERVO_PWM_PIN = 4
 
 class ServoDriver:
     def __init__(self):
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setup(SERVO_PWM_PIN, GPIO.OUT)
-        self.servo = GPIO.PWM(SERVO_PWM_PIN, 50)
-        self.servo.start(7.5)
+        if not NO_MODULE:
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(SERVO_PWM_PIN, GPIO.OUT)
+            self.servo = GPIO.PWM(SERVO_PWM_PIN, 50)
+            self.servo.start(7.5)
 
     def __del__(self):
         """Stop servo"""

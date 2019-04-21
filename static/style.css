@@ -1,9 +1,16 @@
 body {
     text-align: center;
+    margin: 0;
 }
 
 h1 {
-    color: red;
+    color: #555;
+    font-size: 26px;
+}
+
+.iframe-wrapper {
+    display: table;
+    margin: 0 auto;
 }
 
 iframe {
@@ -12,9 +19,14 @@ iframe {
 }
 
 .controls {
-    width: 390px;
+    width: 325px;
     height: 200px;
     margin: 0 auto;
+}
+
+.camera-controls {
+    height: 0;
+    margin-top: 20px;
 }
 
 .controls td {

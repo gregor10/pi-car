@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SmartCar remote control</title>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
@@ -21,32 +22,33 @@
             <tr>
                 <td></td>
                 <td>
-                    <button onclick="changeDirection('forward')">Forward</button>
+                    <button id="forward_dir">Forward</button>
                 </td>
                 <td></td>
             </tr>
             <tr>
                 <td>
-                    <button onclick="changeDirection('left')">Left</button>
+                    <button id="left_dir">Left</button>
                 </td>
                 <td>
-                    <button onclick="changeDirection('stop')">Stop</button>
+                    <button id="stop_dir">Stop</button>
                 </td>
                 <td>
-                    <button onclick="changeDirection('right')">Right</button>
+                    <button id="right_dir">Right</button>
                 </td>
             </tr>
             <tr>
                 <td></td>
                 <td>
-                    <button onclick="changeDirection('backward')">Backward</button>
+                    <button id="backward_dir">Backward</button>
                 </td>
                 <td></td>
             </tr>
         </tbody>
     </table>
 
-    <script src="{{ url_for('static', filename='services_caller.js') }}"></script>
+    <script src="{{ url_for('static', filename='socket_events.js') }}"></script>
+    <!-- <script src="{{ url_for('static', filename='services_caller.js') }}"></script> -->
 </body>
 
 </html>

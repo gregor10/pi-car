@@ -15,8 +15,6 @@ def add_header(response):
 
 
 motor_driver = MotorDriver(75, 100)
-current_direction = None
-
 
 @socketio.on("connection_identification_event")
 def handle_connection_identification_event(json):
@@ -27,9 +25,8 @@ def handle_connection_identification_event(json):
 def change_direction(json):
     print("Change direction:", json)
 
-    if "direction" in json and current_direction != json["direction"]:
-        current_direction = json["direction"]
-        if current_direction == "forward":
+    if "direction" in json:
+        if json["direction"] == "forward":
             motor_driver.go_forward()
 
 

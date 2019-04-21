@@ -21,8 +21,10 @@ h1 {
     width: 100px;
     background: transparent;
     border: 1px solid #aaa;
+    user-select: none;
+    cursor: pointer;
 }
 
-button:visited {
+button:active {
     border: 2px solid;
 }

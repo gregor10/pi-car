@@ -13,13 +13,13 @@ socket.on('connect', () => {
 
     directions.forEach((direction) => {
         const element = document.getElementById(direction)
-        element.onmousedown = () => {
+        element.addEventListener('pointerdown', () => {
             changeDirectionEmitFunction(direction.replace('_dir', ''))
-        }
+        })
 
-        element.onmouseup = () => {
+        element.addEventListener('pointerup', () => {
             changeDirectionEmitFunction('stop')
-        }
+        })
     })
 })
 

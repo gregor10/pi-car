@@ -1,3 +1,4 @@
+NO_MODULE = False
 try:
     import RPi.GPIO as gpio
 except Exception as ex:
@@ -85,21 +86,21 @@ class MotorDriver:
         self.motor_B_backward.start(0)
 
 
-print("---Test---")
-motor_driver = MotorDriver(90, 100)
+# print("---Test---")
+# motor_driver = MotorDriver(90, 100)
 
-motor_driver.go_forward()
-time.sleep(6)
-motor_driver.stop()
+# motor_driver.go_forward()
+# time.sleep(6)
+# motor_driver.stop()
 
-motor_driver.go_backward()
-time.sleep(6)
-motor_driver.stop()
+# motor_driver.go_backward()
+# time.sleep(6)
+# motor_driver.stop()
 
-motor_driver.go_left()
-time.sleep(6)
-motor_driver.stop()
+# motor_driver.go_left()
+# time.sleep(6)
+# motor_driver.stop()
 
-motor_driver.go_right()
-time.sleep(6)
-motor_driver.stop()
+# motor_driver.go_right()
+# time.sleep(6)
+# motor_driver.stop()

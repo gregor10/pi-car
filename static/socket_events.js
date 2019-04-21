@@ -31,6 +31,17 @@ socket.on('connect', () => {
             changeDirectionEmitFunction('stop')
         })
     })
+
+
+    const angles = { 'rotate_left': 0, 'rotate_front': 90, 'rotate_right': 180 }
+    Object.keys(angles).forEach((key) => {
+        const element = document.getElementById(key)
+        const angle = angle[key]
+
+        element.onclick = () => {
+            socket.emit('change_camera_angle', { angle })
+        }
+    })
 })
 
 socket.on('disconnect', () => {

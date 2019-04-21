@@ -2,6 +2,7 @@
 from flask import Flask, request, jsonify, render_template
 from flask_socketio import SocketIO
 from models.motor_driver import MotorDriver
+from models.servo_motor import ServoDriver
 
 app = Flask(__name__, template_folder="templates")
 app.config["SECRET_KEY"] = "30_TISHI_PATARA_FULIA?"
@@ -15,6 +16,7 @@ def add_header(response):
 
 
 motor_driver = MotorDriver(75, 100)
+servo_driver = ServoDriver()
 
 
 @socketio.on("connection_identification_event")
@@ -45,6 +47,14 @@ def handle_change_direction_event(json):
             motor_driver.go_right()
         elif json["direction"] == "stop":
             motor_driver.stop()
+
+
+@socketio.on("change_camera_angle")
+def handle_change_camera_angle(json):
+    print("Change angle:", json)
+
+    if "angle" in json:
+        servo_driver.rotate_camera(angle=json["angle"])
 
 
 @socketio.on('disconnect')

@@ -6,6 +6,11 @@ h1 {
     color: red;
 }
 
+iframe {
+    width: 330px;
+    height: 256px;
+}
+
 .controls {
     width: 390px;
     height: 200px;
@@ -23,6 +28,7 @@ h1 {
     border: 1px solid #aaa;
     user-select: none;
     cursor: pointer;
+    outline: 0;
 }
 
 button:active {

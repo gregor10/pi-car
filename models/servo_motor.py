@@ -3,15 +3,17 @@ try:
     import RPi.GPIO as GPIO
 except Exception as ex:
     NO_MODULE = True
+import time
 
-SERVO_PWM_PIN = 7
+SERVO_PWM_PIN = 4
 
 
 class ServoDriver:
     def __init__(self):
-        GPIO.setmode(GPIO.BOARD)
+        GPIO.setmode(GPIO.BCM)
         GPIO.setup(SERVO_PWM_PIN, GPIO.OUT)
         self.servo = GPIO.PWM(SERVO_PWM_PIN, 50)
+        self.servo.start(7.5)
 
     def __del__(self):
         """Stop servo"""
@@ -29,3 +31,11 @@ class ServoDriver:
         elif angle == 180:
             self.servo.ChangeDutyCycle(12.5)  # 180 deg
             print('turned 180deg')
+
+# servo_driver = ServoDriver()
+
+#servo_driver.rotate_camera(0)
+#time.sleep(2)
+#servo_driver.rotate_camera(90)
+#time.sleep(2)
+#servo_driver.rotate_camera(180)

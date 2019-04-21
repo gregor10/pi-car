@@ -9,7 +9,17 @@ socket.on('connect', () => {
         data: 'OKAY, connected'
     })
 
-    const directions = ['forward_dir', 'left_dir', 'stop_dir', 'right_dir', 'backward_dir']
+    const directions = [
+        'forward_dir',
+        'forward_left_dir',
+        'forward_right_dir',
+        'left_dir',
+        'stop_dir',
+        'right_dir',
+        'backward_dir',
+        'backward_left_dir',
+        'backward_right_dir'
+    ]
 
     directions.forEach((direction) => {
         const element = document.getElementById(direction)

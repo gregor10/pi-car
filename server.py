@@ -29,8 +29,16 @@ def handle_change_direction_event(json):
     if "direction" in json:
         if json["direction"] == "forward":
             motor_driver.go_forward()
+        elif json["direction"] == "forward_left":
+            motor_driver.go_forward_left()
+        elif json["direction"] == "forward_right":
+            motor_driver.go_forward_right()
         elif json["direction"] == "backward":
             motor_driver.go_backward()
+        elif json["direction"] == "backward_left":
+            motor_driver.go_backward_left()
+        elif json["direction"] == "backward_right":
+            motor_driver.go_backward_right()
         elif json["direction"] == "left":
             motor_driver.go_left()
         elif json["direction"] == "right":

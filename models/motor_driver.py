@@ -27,6 +27,7 @@ class MotorDriver:
             self.init_pins()
 
     def __del__(self):
+        self.stop()
         gpio.cleanup()
 
     def init_pins(self):

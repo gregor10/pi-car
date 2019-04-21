@@ -9,19 +9,18 @@ socket.on('connect', () => {
         data: 'OKAY, connected'
     })
 
-    window.onload = () => {
-        ['forward_dir', 'left_dir', 'stop_dir', 'right_dir', 'backward_dir']
-            .forEach((direction) => {
-                const element = document.getElementById(direction)
-                element.onmousedown = () => {
-                    changeDirectionEmitFunction(direction.replace('_dir', ''))
-                }
-                
-                element.onmouseup = () => {
-                    changeDirectionEmitFunction('stop')
-                }
-            })
-    }
+    const directions = ['forward_dir', 'left_dir', 'stop_dir', 'right_dir', 'backward_dir']
+
+    directions.forEach((direction) => {
+        const element = document.getElementById(direction)
+        element.onmousedown = () => {
+            changeDirectionEmitFunction(direction.replace('_dir', ''))
+        }
+
+        element.onmouseup = () => {
+            changeDirectionEmitFunction('stop')
+        }
+    })
 })
 
 socket.on('disconnect', () => {

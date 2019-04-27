@@ -12,7 +12,7 @@ PIN_ECHO = 21
 
 
 class UltrasonicModule:
-    def __init__(self, max_distance_between_obstacle):
+    def __init__(self, max_distance_between_obstacle=15):
         # use Raspberry Pi board pin numbers
         if not NO_MODULE:
             self.max_distance_between_obstacle = max_distance_between_obstacle

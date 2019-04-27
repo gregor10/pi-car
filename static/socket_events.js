@@ -44,6 +44,10 @@ socket.on('connect', () => {
     })
 })
 
+socket.on('ultrasonic_distance', (data) => {
+    console.log('Ultrasonic', data)
+})
+
 socket.on('disconnect', () => {
     console.log('DISCONNECT EVENT!', socket)
 })

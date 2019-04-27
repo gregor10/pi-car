@@ -26,13 +26,14 @@ ultrasonic_driver = UltrasonicModule()
 
 @socketio.on("connection_identification_event")
 def handle_connection_identification_event(json):
-    print("received json: " + str(json))
+    print("received json: " + str(json), '\n\n')
 
     @copy_current_request_context
     def get_ultrasonic_distance():
         while True:
             distance = ultrasonic_driver.get_distance()
-            time.sleep(0.01)
+            # print('here we are')
+            time.sleep(0.2)
             emit('ultrasonic_distance', {"distance": distance})
 
     Thread(target=get_ultrasonic_distance).start()

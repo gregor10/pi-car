@@ -12,9 +12,11 @@ PIN_ECHO = 21
 
 
 class UltrasonicModule:
-    def __init__(self):
+    def __init__(self, max_distance_between_obstacle):
         # use Raspberry Pi board pin numbers
         if not NO_MODULE:
+            self.max_distance_between_obstacle = max_distance_between_obstacle
+
             GPIO.setmode(GPIO.BCM)
             self.pin_trigger = PIN_TRIGGER
             self.pin_echo = PIN_ECHO
@@ -52,10 +54,19 @@ class UltrasonicModule:
         print("Distance: %.1f cm" % distance)
         return distance
 
+    def should_stop(self, count=0):
+        if count == 3:
+            return True
 
-distance_detector = UltrasonicModule()
+        distance = self.get_distance()
+        if distance <= self.max_distance_between_obstacle:
+            return self.should_stop(count=count+1)
+
+        return False
+
+
+ultrasonic = UltrasonicModule(max_distance_between_obstacle=15)
 while True:
-    curr_distance = distance_detector.get_distance()
-    print('curr_distance', curr_distance)
+    should_stop = ultrasonic.should_stop()
+    print('should_stop', should_stop, '\n')
     # time.sleep(1)
-    

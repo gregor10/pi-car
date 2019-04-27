@@ -1,5 +1,5 @@
 
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, copy_current_request_context
 from flask_socketio import SocketIO, emit
 from models.motor_driver import MotorDriver
 from models.servo_motor import ServoDriver
@@ -31,8 +31,13 @@ def test():
 @socketio.on("connection_identification_event")
 def handle_connection_identification_event(json):
     print("received json: " + str(json))
-    thread = Thread(target=test, args=())
-    thread.start()
+    @copy_current_request_context
+    def foo_main():
+         while True:
+            time.sleep(1)
+            emit('ultrasonic_distance', {"distance": 2.0})
+
+    Thread(target=foo_main).start()
 
 
 @socketio.on("change_direction")

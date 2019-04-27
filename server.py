@@ -1,8 +1,11 @@
 
 from flask import Flask, request, jsonify, render_template
-from flask_socketio import SocketIO
+from flask_socketio import SocketIO, emit
 from models.motor_driver import MotorDriver
 from models.servo_motor import ServoDriver
+
+from threading import Thread
+import time
 
 app = Flask(__name__, template_folder="templates")
 app.config["SECRET_KEY"] = "30_TISHI_PATARA_FULIA?"
@@ -19,9 +22,17 @@ motor_driver = MotorDriver(75, 100)
 servo_driver = ServoDriver()
 
 
+def test():
+    while True:
+        time.sleep(1)
+        emit('ultrasonic_distance', {"distance": 2.0})
+
+
 @socketio.on("connection_identification_event")
 def handle_connection_identification_event(json):
     print("received json: " + str(json))
+    thread = Thread(target=test, args=())
+    thread.start()
 
 
 @socketio.on("change_direction")

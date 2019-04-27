@@ -47,7 +47,7 @@ socket.on('connect', () => {
 socket.on('ultrasonic_distance', (data) => {
     console.log('Ultrasonic', data)
     if ('distance' in data) {
-        document.getElementById('distance_tracker').innerHTML = `Distance ${data.distance} cm`
+        document.getElementById('distance_tracker').innerHTML = `Distance ${data.distance.toFixed(1)} cm`
     }
 
 })

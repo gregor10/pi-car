@@ -4,9 +4,9 @@ import time
 from models.ultrasonic import UltrasonicModule
 from models.motor_driver import MotorDriver
 
-MAX_DISTANCE_BETWEEN_OBSTACLE = 15
+MAX_DISTANCE_BETWEEN_OBSTACLE = 25
 
-MOTORS_SPEED = 60
+MOTORS_SPEED = 40
 MAX_SPEED = 100
 
 
@@ -22,6 +22,8 @@ class ObstacleAvoider:
         while True:
             should_stop = self.ultrasonic_driver.should_stop()
             print('should_stop', should_stop, '\n')
+            # self.motor_driver.go_forward()
+            # time.sleep(1)
             if should_stop:
                 self.motor_driver.stop()
                 time.sleep(1)
@@ -34,11 +36,13 @@ class ObstacleAvoider:
                     self.motor_driver.go_right()
                 else:
                     self.motor_driver.go_left()
-                time.sleep(0.5)
+                time.sleep(1)
                 self.motor_driver.stop()
                 time.sleep(1)
             else:
                 self.motor_driver.go_forward()
+                print('here we are')
+                time.sleep(0.2)
 
 obstacle_avoider = ObstacleAvoider()
 obstacle_avoider.avoid_obstacles()

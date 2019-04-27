@@ -65,8 +65,8 @@ class UltrasonicModule:
         return False
 
 
-ultrasonic = UltrasonicModule(max_distance_between_obstacle=15)
-while True:
-    should_stop = ultrasonic.should_stop()
-    print('should_stop', should_stop, '\n')
-    # time.sleep(1)
+# ultrasonic = UltrasonicModule(max_distance_between_obstacle=15)
+# while True:
+#    should_stop = ultrasonic.should_stop()
+#    print('should_stop', should_stop, '\n')
+#    # time.sleep(1)

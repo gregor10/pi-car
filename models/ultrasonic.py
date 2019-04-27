@@ -51,7 +51,7 @@ class UltrasonicModule:
         # and divide by 2, because there and back
         distance = (TimeElapsed * 34300) / 2
 
-        print("Distance: %.1f cm" % distance)
+        # print("Distance: %.1f cm" % distance)
         return distance
 
     def should_stop(self, count=0):

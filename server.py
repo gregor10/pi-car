@@ -32,8 +32,7 @@ def handle_connection_identification_event(json):
     def get_ultrasonic_distance():
         while True:
             distance = ultrasonic_driver.get_distance()
-            # print('here we are')
-            time.sleep(0.2)
+            time.sleep(0.15)
             emit('ultrasonic_distance', {"distance": distance})
 
     Thread(target=get_ultrasonic_distance).start()

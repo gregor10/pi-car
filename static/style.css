@@ -11,6 +11,16 @@ h1 {
 .iframe-wrapper {
     display: table;
     margin: 0 auto;
+    position: relative;
+}
+
+#distance_tracker {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 14px;
+    color: white;
+    text-shadow: -1px -1px 1px #000, 1px -1px 1px #000, -1px 1px 1px #000, 1px 1px 1px #000;
 }
 
 iframe {

@@ -7,6 +7,7 @@ from models.ultrasonic import UltrasonicModule
 
 from threading import Thread
 import time
+import os
 
 app = Flask(__name__, template_folder="templates")
 app.config["SECRET_KEY"] = "30_TISHI_PATARA_FULIA?"
@@ -33,6 +34,9 @@ def handle_connection_identification_event(json):
         while True:
             distance = ultrasonic_driver.get_distance()
             time.sleep(0.15)
+            if distance < 15.0:
+                os.system("mpg123 /home/pi/Music/obstacle.mp3")
+
             emit('ultrasonic_distance', {"distance": distance})
 
     Thread(target=get_ultrasonic_distance).start()

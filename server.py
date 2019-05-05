@@ -23,7 +23,8 @@ def add_header(response):
 motor_driver = MotorDriver(75, 100)
 servo_driver = ServoDriver()
 ultrasonic_driver = UltrasonicModule()
-
+global obstacle_counter
+obstacle_counter = 0
 
 @socketio.on("connection_identification_event")
 def handle_connection_identification_event(json):
@@ -31,10 +32,14 @@ def handle_connection_identification_event(json):
 
     @copy_current_request_context
     def get_ultrasonic_distance():
+        global obstacle_counter
         while True:
             distance = ultrasonic_driver.get_distance()
             time.sleep(0.15)
             if distance < 15.0:
+                obstacle_counter += 1
+            if obstacle_counter == 3:
+                obstacle_counter = 0
                 os.system("mpg123 /home/pi/Music/obstacle.mp3")
 
             emit('ultrasonic_distance', {"distance": distance})
